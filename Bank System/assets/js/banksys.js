@@ -10,7 +10,7 @@ var person2 = {
     accountID: "009060168",
     userName: "person2",
     password: "iamnotone",
-    currentBalance: 7732
+    currentBalance: 7732,
 
 }
 
@@ -18,14 +18,14 @@ var person3 = {
     accountID: "009060654",
     userName: "person3",
     password: "threetrees",
-    currentBalance: 3356
+    currentBalance: 3356,
 
 }
 var person4 = {
     accountID: "009060985",
     userName: "person4",
     password: "iamnumberfour",
-    currentBalance: 11646
+    currentBalance: 11646,
 
 };
 
@@ -44,21 +44,21 @@ function loginVerify() {
 
     if (loginUser == person1.userName && loginPassword == person1.password) {
 
-        alert("logged in successfully");
+        console.log("logged in successfully");
         loginKey = 1;
 
     } else if (loginUser == person2.userName && loginPassword == person2.password) {
 
-        alert("logged in successfully");
+        console.log("logged in successfully");
         loginKey = 2;
 
     } else if (loginUser == person3.userName && loginPassword == person3.password) {
 
-        alert("logged in successfully");
+        console.log("logged in successfully");
         loginKey = 3;
     } else if (loginUser == person4.userName && loginPassword == person4.password) {
 
-        alert("logged in successfully");
+        console.log("logged in successfully");
         loginKey = 4;
     } else {
         alert("Warning! incorrect username or password.");
@@ -87,22 +87,22 @@ function deposit(depositOption) {
 
                 case 1:
                     person1.currentBalance += depositAmount;
-                    alert("Deposit successful! You have deposited " + depositAmount + " to your account. Your Current account balance is " + person1.currentBalance);
+                    console.log("Deposit successful! You have deposited " + depositAmount + " to your account. Your Current account balance is " + person1.currentBalance);
 
                     break;
                 case 2:
                     person2.currentBalance += depositAmount;
-                    alert("Deposit successful! You have deposited " + depositAmount + " to your account. Your Current account balance is " + person2.currentBalance);
+                    console.log("Deposit successful! You have deposited " + depositAmount + " to your account. Your Current account balance is " + person2.currentBalance);
 
                     break;
                 case 3:
                     person3.currentBalance += depositAmount;
-                    alert("Deposit successful! You have deposited " + depositAmount + " to your account. Your Current account balance is " + person3.currentBalance);
+                    console.log("Deposit successful! You have deposited " + depositAmount + " to your account. Your Current account balance is " + person3.currentBalance);
 
                     break;
                 case 4:
                     person4.currentBalance += depositAmount;
-                    alert("Deposit successful! You have deposited " + depositAmount + " to your account. Your Current account balance is " + person4.currentBalance);
+                    console.log("Deposit successful! You have deposited " + depositAmount + " to your account. Your Current account balance is " + person4.currentBalance);
 
                     break;
 
@@ -111,7 +111,7 @@ function deposit(depositOption) {
             }
             break;
 
-        //   others' account 
+            //   others' account 
         case "b":
             var depositReceiver = prompt("Enter the account holder to whom you're sending money to: ")
             var depositAmount = parseInt(prompt("Enter the amount of money you want to deposit: "));
@@ -122,20 +122,20 @@ function deposit(depositOption) {
 
                     person1.currentBalance += depositAmount;
 
-                    alert("Deposit successful. You have sent " + depositAmount + " USD$ to " + depositReceiver);
+                    console.log("Deposit successful. You have sent " + depositAmount + " USD$ to " + depositReceiver);
 
                     break;
                 case "person2":
 
                     person2.currentBalance += depositAmount;
 
-                    alert("Deposit successful. You have sent " + depositAmount + " USD$ to " + depositReceiver);
+                    console.log("Deposit successful. You have sent " + depositAmount + " USD$ to " + depositReceiver);
                     break;
                 case "person3":
 
                     person3.currentBalance += depositAmount;
 
-                    alert("Deposit successful. You have sent " + depositAmount + " USD$ to " + depositReceiver);
+                    console.log("Deposit successful. You have sent " + depositAmount + " USD$ to " + depositReceiver);
 
                     break;
 
@@ -143,7 +143,7 @@ function deposit(depositOption) {
 
                     person4.currentBalance += depositAmount;
 
-                    alert("Deposit successful. You have sent " + depositAmount + " USD$ to " + depositReceiver);
+                    console.log("Deposit successful. You have sent " + depositAmount + " USD$ to " + depositReceiver);
                     break;
 
                 default:
@@ -151,14 +151,7 @@ function deposit(depositOption) {
             }
 
             break;
-
-
-
     }
-
-
-
-
 };
 
 
@@ -166,16 +159,16 @@ function deposit(depositOption) {
 function currentBalance(loginKey) {
     switch (loginKey) {
         case 1:
-            alert( "Dear customer your current account balance is: " + person1.currentBalance);
+            console.log("Dear customer your current account balance is: " + person1.currentBalance);
             break;
         case 2:
-            alert( "Dear customer your current account balance is: " + person2.currentBalance);
+            console.log("Dear customer your current account balance is: " + person2.currentBalance);
             break;
         case 3:
-            alert( "Dear customer your current account balance is: " + person3.currentBalance);
+            console.log("Dear customer your current account balance is: " + person3.currentBalance);
             break;
         case 4:
-            alert( "Dear customer your current account balance is: " + person4.currentBalance);
+            console.log("Dear customer your current account balance is: " + person4.currentBalance);
             break;
 
     }
@@ -184,134 +177,57 @@ function currentBalance(loginKey) {
 
 
 
+function transfer(loginKey, transactionReceiver, transferAmount) {
 
 
-
-
-
-
-
-
-
-
-
-
-
-function transfer(loginKey, transactionReceiver, transferAmount){
-
-    
     switch (loginKey) {
+
         case 1:
-            person1.currentBalance -= transferAmount;
-            alert("Your current balance is: " + person1.currentBalance)
+
+
+            if (transferAmount <= parseInt(person1.currentBalance)) {
+
+                person1.currentBalance -= transferAmount;
+                console.log("Your current balance is: " + person1.currentBalance);
+
+
+            } else {
+                alert("Warning! your current balance is insufficient for the transfer.")
+            }
             break;
         case 2:
-            function transfer(loginKey, transactionReceiver){
-            
-                
-                switch (loginKey) {
-                    case 1:
-                        function transfer(loginKey, transactionReceiver){
-                        
-                            
-                            switch (loginKey) {
-                                case 1:
-                                    person1.currentBalance -= transferAmount;
-                                    alert("Your current balance is: " + person1.currentBalance)
-                                    break;
-                                case 2:
-                                    person2.currentBalance -= transferAmount;
-                                    alert("Your current balance is: " + person2.currentBalance)
-                                    break;
-                                case 3:
-                                    person3.currentBalance -= transferAmount;
-                                    alert("Your current balance is: " + person3.currentBalance)
-                                    break;
-                                case 4:
-                                    person4.currentBalance -= transferAmount;
-                                    alert("Your current balance is: " + person4.currentBalance)
-                                    break;
-                        
-                            }
-                        
-                        
-                            switch (transactionReceiver) {
-                                case "person1":
-                                    person1.currentBalance += transferAmount;
-                                    alert("The transfer has completed successfully. The reciever's current account balance is : " + person1.currentBalance);
-                                    break;
-                                case "person2":
-                                    person2.currentBalance += transferAmount;   
-                                    alert("The transfer has completed successfully. The reciever's current account balance is : " + person2.currentBalance);
-                                    break;
-                                case "person3":
-                                    person3.currentBalance += transferAmount;
-                                    alert("The transfer has completed successfully. The reciever's current account balance is : " + person3.currentBalance);
-                                    break;
-                                case "person4":
-                                    person4.currentBalance += transferAmount;
-                                    alert("The transfer has completed successfully. The reciever's current account balance is : " + person4.currentBalance);
-                                    break;
-                        
-                            }
-                        
-                        
-                           
-                        }
-                        
-                        person1.currentBalance -= transferAmount;
-                        alert("Your current balance is: " + person1.currentBalance)
-                        break;
-                    case 2:
-                        person2.currentBalance -= transferAmount;
-                        alert("Your current balance is: " + person2.currentBalance)
-                        break;
-                    case 3:
-                        person3.currentBalance -= transferAmount;
-                        alert("Your current balance is: " + person3.currentBalance)
-                        break;
-                    case 4:
-                        person4.currentBalance -= transferAmount;
-                        alert("Your current balance is: " + person4.currentBalance)
-                        break;
-            
-                }
-            
-            
-                switch (transactionReceiver) {
-                    case "person1":
-                        person1.currentBalance += transferAmount;
-                        alert("The transfer has completed successfully. The reciever's current account balance is : " + person1.currentBalance);
-                        break;
-                    case "person2":
-                        person2.currentBalance += transferAmount;   
-                        alert("The transfer has completed successfully. The reciever's current account balance is : " + person2.currentBalance);
-                        break;
-                    case "person3":
-                        person3.currentBalance += transferAmount;
-                        alert("The transfer has completed successfully. The reciever's current account balance is : " + person3.currentBalance);
-                        break;
-                    case "person4":
-                        person4.currentBalance += transferAmount;
-                        alert("The transfer has completed successfully. The reciever's current account balance is : " + person4.currentBalance);
-                        break;
-            
-                }
-            
-            
-               
+
+            if (transferAmount <= parseInt(person2.currentBalance)) {
+
+                person2.currentBalance -= transferAmount;
+                console.log("Your current balance is: " + person2.currentBalance);
+
+
+            } else {
+                alert("Warning! your current balance is insufficient for the transfer.")
             }
-            
-            person2.currentBalance -= transferAmount;
-            alert("Your current balance is: " + person2.currentBalance)
             break;
         case 3:
-            person3.currentBalance -= transferAmount;
-            alert("Your current balance is: " + person3.currentBalance)
+            if (transferAmount <= parseInt(person3.currentBalance)) {
+
+                person3.currentBalance -= transferAmount;
+                console.log("Your current balance is: " + person3.currentBalance);
+
+
+            } else {
+                alert("Warning! your current balance is insufficient for the transfer.")
+            }
             break;
         case 4:
-            person4.currentBalance -= transferAmount;
-            alert("Your current balance is: " + person4.currentBalance)
+            if (transferAmount <= parseInt(person4.currentBalance)) {
+
+                person4.currentBalance -= transferAmount;
+                console.log("Your current balance is: " + person4.currentBalance);
+
+
+            } else {
+                alert("Warning! your current balance is insufficient for the transfer.")
+            }
             break;
 
     }
@@ -323,7 +239,7 @@ function transfer(loginKey, transactionReceiver, transferAmount){
             alert("The transfer has completed successfully.");
             break;
         case "person2":
-            person2.currentBalance += transferAmount;   
+            person2.currentBalance += transferAmount;
             alert("The transfer has completed successfully.");
             break;
         case "person3":
@@ -338,20 +254,13 @@ function transfer(loginKey, transactionReceiver, transferAmount){
     }
 
 
-   
-}
 
-
-
-
-
-
-
+};
 
 
 function withdraw(withdrawAmount) {
 
-    
+
     switch (loginKey) {
 
         case 1:
@@ -359,6 +268,9 @@ function withdraw(withdrawAmount) {
 
                 person1.currentBalance -= withdrawAmount;
                 alert("You have successfully withdrew " + withdrawAmount + " of money from your account. Remaining balance is " + person1.currentBalance);
+            } else if (withdrawAmount >= "10000") {
+                console.log("You cannot withdraw above 10,000 USD at once.")
+
             } else {
                 alert("Warning! insufficient balance.");
             }
@@ -369,6 +281,9 @@ function withdraw(withdrawAmount) {
 
                 person2.currentBalance -= withdrawAmount;
                 alert("You have successfully withdrew " + withdrawAmount + " of money from your account. Remaining balance is " + person2.currentBalance);
+            } else if (withdrawAmount >= "10000") {
+                console.log("You cannot withdraw above 10,000 USD at once.")
+
             } else {
                 alert("Warning! insufficient balance.");
             }
@@ -379,6 +294,9 @@ function withdraw(withdrawAmount) {
 
                 person3.currentBalance -= withdrawAmount;
                 alert("You have successfully withdrew " + withdrawAmount + " of money from your account. Remaining balance is " + person3.currentBalance);
+            } else if (withdrawAmount >= "10000") {
+                console.log("You cannot withdraw above 10,000 USD at once.")
+
             } else {
                 alert("Warning! insufficient balance.");
             }
@@ -389,12 +307,15 @@ function withdraw(withdrawAmount) {
                 person3.currentBalance -= withdrawAmount;
                 alert("You have successfully withdrew " + withdrawAmount + " of money from your account. Remaining balance is " + person4.currentBalance);
 
+            } else if (withdrawAmount >= "10000") {
+                console.log("You cannot withdraw above 10,000 USD at once.")
+
             } else {
                 alert("Warning! insufficient balance.");
             }
 
             break;
-        
+
         default:
             alert("The account of your choice doesn't exist");
 
@@ -402,16 +323,7 @@ function withdraw(withdrawAmount) {
 };
 
 
-
-
-
-
-
-
-
-
-
-
+// the IIFE
 
 
 (function () {
@@ -425,16 +337,14 @@ function withdraw(withdrawAmount) {
         deposit(depositOption);
 
 
-    } else if (option == "w" || option == "b" || option == "t") {
+    } else if (option == "w" | option == "b" | option == "t") {
 
         loginVerify();
 
         switch (option) {
             case "w":
-
                 var withdrawAmount = parseInt(prompt("Enter the amount You want to withdraw: "));
                 withdraw(withdrawAmount);
-
                 break;
 
             case "b":
@@ -442,28 +352,19 @@ function withdraw(withdrawAmount) {
                 break;
 
             case "t":
+
+
                 transferAmount = parseInt(prompt("Enter the amount of money you want to transfer: "));
                 transactionReceiver = prompt("Enter the receiver's account holder name: ");
                 transfer(loginKey, transactionReceiver, transferAmount);
                 break;
-               
-            default :
-            alert("Choose a valid operation! ");
+
+            default:
+                alert("Choose a valid operation! ");
 
 
         }
 
-
-
     }
-
-
-
-
-
-
-
-
-
 
 })();
